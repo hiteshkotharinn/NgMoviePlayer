@@ -18,11 +18,11 @@ export class ErrorHandlerService implements ErrorHandler {
     if (error instanceof HttpErrorResponse) {
       let httpErrorResponse: HttpErrorResponse = error;
       if (httpErrorResponse.status == 500) {
-        errorMsg = httpErrorResponse.error.responseMsg;
+        errorMsg = "The request was accepted but an error on the server prevented the fulfillment of the request.";
       } else if (httpErrorResponse.status == 404) {
-        errorMsg = "404 Bad Request!"
+        errorMsg = "The requested video is not found!"
       } else if (httpErrorResponse.status == 400) {
-        errorMsg = "400 Incorrect Request Params!"
+        errorMsg = "There was a problem with the request!"
       } else {
         console.error(error);
       }
